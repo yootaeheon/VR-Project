@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField] public int hp;
+    [SerializeField] public int maxHp;
+    private int curHp;
     private void Start()
     {
-        hp = 2;
+        curHp = maxHp;
     }
 
     public void TakeDamage(int damage)
     {
-        hp -= damage;
-        if (hp <= 0)
+        curHp -= damage;
+        if (curHp <= 0)
         {
             Die();
         }
